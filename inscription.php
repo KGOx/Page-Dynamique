@@ -6,7 +6,7 @@ require_once __DIR__ . DIRECTORY_SEPARATOR . 'traitementform.php';
 ?>
 <h2>Inscription</h2>
 
-<form action="traitementform.php" method="post">
+<form action="traitementform.php" method="POST">
     <div>
         <label for="inscription_pseudo">Nom d'utilisateur :</label>
         <input type="text" id="inscription_pseudo" name="inscription_pseudo" placeholder="Jean Louis" minlength="2" maxlength="255" required>

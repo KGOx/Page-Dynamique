@@ -3,28 +3,32 @@ require_once __DIR__ . DIRECTORY_SEPARATOR . 'connexion_bdd.php';
 
 // Les données provenant d'un formulaire d'inscription simplifié.
 print_r($_POST);
-
-try
+function enregistrer_utilisateur($inscription_pseudo, $inscription_email, $inscription_mdp)
 {
-    // Instancier la connexion à la base de données.
-    $pdo = connexion_bdd();
+    try
+    {
+        // Instancier la connexion à la base de données.
+        $pdo = connexion_bdd();
 
-    // La requête permettant d'ajouter un nouvel utilisateur à la table "t_utilisateur_uti".
-    $requete = "INSERT INTO t_utilisateur_uti (uti_pseudo, uti_email, uti_motdepasse) VALUES (:pseudo, :email, :motdepasse)";
+        $MotdepasseCrypted = password_hash($inscription_mdp, PASSWORD_DEFAULT);
 
-    // Préparer la requête SQL.
-    $stmt = $pdo->prepare($requete);
+        // La requête permettant d'ajouter un nouvel utilisateur à la table "t_utilisateur_uti".
+        $requete = "INSERT INTO t_utilisateur_uti (uti_pseudo, uti_email, uti_motdepasse) VALUES (:pseudo, :email, :motdepasse)";
 
-    // Lier les variables aux marqueurs :
-    $stmt->bindValue(':pseudo', $_POST['inscription_pseudo'], PDO::PARAM_STR);
-    $stmt->bindValue(':email', $_POST['inscription_email'], PDO::PARAM_STR);
-    $stmt->bindValue(':motdepasse', $_POST['inscription_mdp'], PDO::PARAM_STR);
+        // Préparer la requête SQL.
+        $stmt = $pdo->prepare($requete);
 
-    // Exécuter la requête.
-    $stmt->execute();
-}
-catch(PDOException $e)
-{
-    echo "Erreur d'exécution de requête : " . $e->getMessage() . PHP_EOL;
+        // Lier les variables aux marqueurs :
+        $stmt->bindValue(':pseudo', $inscription_pseudo, PDO::PARAM_STR);
+        $stmt->bindValue(':email', $inscription_email, PDO::PARAM_STR);
+        $stmt->bindValue(':motdepasse', $MotdepasseCrypted, PDO::PARAM_STR);
+
+        // Exécuter la requête.
+        $stmt->execute();
+    }
+    catch(PDOException $e)
+    {
+        echo "Erreur d'exécution de requête : " . $e->getMessage() . PHP_EOL;
+    }
 }
 ?>

@@ -1,4 +1,5 @@
 <?php
+require_once 'utilisateur_model.php';
 session_start();
 
 function valider_champ($champ, $regle, &$erreurs, $message) {
@@ -36,7 +37,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
     valider_champ('message', 'minlength', $erreurs, 10);
     valider_champ('message', 'maxlength', $erreurs, 3000);
 
-    if (!empty($erreurs)) {
+    if (!empty($erreurs)) 
+    {
         $_SESSION['erreurs'] = $erreurs;
         $_SESSION['old'] = $_POST;
        
@@ -47,13 +49,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
     // Sauvegarde les données du formulaire dans une session
     $_SESSION['form_data'] = $_POST;
 
-    // Traitement des cookies
-    setcookie('nom', $_POST['Nom'], time() + 3600, '/');
-    setcookie('prenom', $_POST['Prenom'], time() + 3600, '/');
-    setcookie('email', $_POST['E-Mail'], time() + 3600, '/');
-    header('Location: confirmation.php');
-    exit();
-    }
+    $inscription_pseudo = $_POST['inscription_pseudo'];
+    $inscription_email = $_POST['inscription_email'];
+    $inscription_mdp = $_POST['inscription_mdp'];
+
+    $result = enregistrer_utilisateur($inscription_pseudo, $inscription_email, $inscription_mdp);
     
+    if ($result)
+    {
+        // Traitement des cookies
+        setcookie('nom', $_POST['Nom'], time() + 3600, '/');
+        setcookie('prenom', $_POST['Prenom'], time() + 3600, '/');
+        setcookie('email', $_POST['E-Mail'], time() + 3600, '/');
+        header('Location: confirmation.php');
+        exit();
+    }
+    }    
 };
 ?>
