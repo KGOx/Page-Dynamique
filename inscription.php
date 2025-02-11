@@ -9,12 +9,12 @@ require_once __DIR__ . DIRECTORY_SEPARATOR . 'traitementform.php';
 <form action="traitementform.php" method="POST">
     <div>
         <label for="inscription_pseudo">Nom d'utilisateur :</label>
-        <input type="text" id="inscription_pseudo" name="inscription_pseudo" placeholder="Jean Louis" minlength="2" maxlength="255" required>
+        <input type="text" id="Nom" name="Nom" placeholder="Jean_Louis" minlength="2" maxlength="255" required>
     </div>
 
     <div>
         <label for="inscription_email">E-mail :</label>
-        <input type="email" id="inscription_email" name="inscription_email" placeholder="JeanlouisBrogniard@hotmail.fr" required>
+        <input type="email" id="E-Mail" name="E-Mail" placeholder="JeanlouisBrogniard@hotmail.fr" required>
     </div>
 
     <div>

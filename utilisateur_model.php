@@ -1,8 +1,6 @@
 <?php
 require_once __DIR__ . DIRECTORY_SEPARATOR . 'connexion_bdd.php';
 
-// Les données provenant d'un formulaire d'inscription simplifié.
-print_r($_POST);
 function enregistrer_utilisateur($inscription_pseudo, $inscription_email, $inscription_mdp)
 {
     try
@@ -25,10 +23,13 @@ function enregistrer_utilisateur($inscription_pseudo, $inscription_email, $inscr
 
         // Exécuter la requête.
         $stmt->execute();
+
+        return true;
     }
     catch(PDOException $e)
     {
         echo "Erreur d'exécution de requête : " . $e->getMessage() . PHP_EOL;
+        return false;
     }
 }
 ?>
