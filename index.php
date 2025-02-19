@@ -1,4 +1,5 @@
 <?php 
+session_start();
 $metaDescription = "description de la page actuelle...";
 $pageTitre = "Mon Premier Modèle de Page Dynamique";
 require_once __DIR__ . DIRECTORY_SEPARATOR . 'header.php'; ?>

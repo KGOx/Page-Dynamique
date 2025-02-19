@@ -29,7 +29,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Vérification du mot de passe haché
         if (password_verify($motDePasse, $user["uti_motdepasse"])) {
             // Connexion réussie, on enregistre l'utilisateur en session
-            $_SESSION["user_id"] = $user["id"];
+            $_SESSION["user_id"] = $user["uti_pseudo"];
             $_SESSION["uti_pseudo"] = $user["uti_pseudo"];
             $_SESSION["uti_email"] = $user["uti_email"];
 

@@ -2,11 +2,11 @@
 $metaDescription = "description de la page actuelle...";
 $pageTitre = "Inscription";
 require_once __DIR__ . DIRECTORY_SEPARATOR . 'header.php'; 
-require_once __DIR__ . DIRECTORY_SEPARATOR . 'traitementform.php';
+require_once __DIR__ . DIRECTORY_SEPARATOR . 'traitementForm_inscription.php';
 ?>
 <h2>Inscription</h2>
 
-<form action="traitementform.php" method="POST">
+<form action="traitementForm_inscription.php" method="POST">
     <div>
         <label for="inscription_pseudo">Nom d'utilisateur :</label>
         <input type="text" id="Nom" name="Nom" placeholder="Jean_Louis" minlength="2" maxlength="255" required>

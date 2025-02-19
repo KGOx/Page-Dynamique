@@ -2,11 +2,11 @@
 $metaDescription = "description de la page actuelle...";
 $pageTitre = "Contact";
 require_once __DIR__ . DIRECTORY_SEPARATOR . 'header.php'; 
-require_once __DIR__ . DIRECTORY_SEPARATOR . 'traitementform.php'; 
+require_once __DIR__ . DIRECTORY_SEPARATOR . 'traitementForm_contact.php'; 
 ?>
 <h2>Contact</h2>
 
-<form action="traitementform.php" method="post">
+<form action="traitementForm_contact.php" method="post">
     <div>
         <label for="nom">Nom :</label>
         <input type="text" id="nom" name="Nom" placeholder="Jean Louis" minlength="2" maxlength="255" required>

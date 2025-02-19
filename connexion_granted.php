@@ -8,8 +8,7 @@ if (!isset($_SESSION["user_id"])) {
 }
 
 // Récupère les informations de session
-$nomUtilisateur = htmlspecialchars($_SESSION["nom_utilisateur"]);
-$email = htmlspecialchars($_SESSION["email"]);
+$nomUtilisateur = htmlspecialchars($_SESSION['uti_pseudo']);
 
 // Efface les données de session si nécessaire
 // unset($_SESSION["nom_utilisateur"], $_SESSION["email"]);
@@ -28,9 +27,9 @@ require_once __DIR__ . DIRECTORY_SEPARATOR . 'header.php';
     <meta http-equiv="refresh" content="7;url=index.php">
 </head>
 <body>
-    <h1>Bienvenue, <?= $nomUtilisateur ?> !</h1>
-    <p>Vous êtes maintenant connecté.</p>
-    <p>Vous serez redirigé vers l'accueil dans quelques secondes...</p>
+    <h1>Bonjour <?= $nomUtilisateur ?> !</h1>
+        <p>Vous êtes maintenant connecté.</p>
+        <p>Vous serez redirigé vers l'accueil dans quelques secondes...</p>
 </body>
 </html>
 
