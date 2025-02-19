@@ -1,3 +1,4 @@
+<?session_start(); ?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -13,8 +14,14 @@
             <ul>
                 <li><a href="index.php">Accueil</a></li>
                 <li><a href="contact.php">Contact</a></li>
-                <li><a href="inscription.php">Inscription</a></li>
-                <li><a href="connexion.php">Connexion</a></li>
+
+                <?php if (!isset($_SESSION["user_id"])): ?> 
+                    <li><a href="inscription.php">Inscription</a></li>
+                    <li><a href="connexion.php">Connexion</a></li>
+                <?php else: ?>
+                    <li><a href="profil.php">Mon profil</a></li>
+                    <li><a href="logout.php">Déconnexion</a></li>
+                <?php endif; ?>
             </ul>
         </nav>
     </header>

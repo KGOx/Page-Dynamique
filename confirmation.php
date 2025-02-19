@@ -25,7 +25,7 @@ require_once __DIR__ . DIRECTORY_SEPARATOR . 'header.php';
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Confirmation d'inscription</title>
-    <meta http-equiv="refresh" content="777;url=index.php"> <!-- Redirection automatique -->
+    <meta http-equiv="refresh" content="7;url=index.php"> <!-- Redirection automatique -->
 </head>
 <body>
     <h1>Merci pour votre inscription, <?= $nom ?> !</h1>

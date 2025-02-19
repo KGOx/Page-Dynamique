@@ -35,16 +35,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
     valider_champ('Nom', 'minlength', $erreurs, 2);
     valider_champ('Nom', 'maxlength', $erreurs, 255);
 
-    // valider_champ('Prenom', 'required', $erreurs, 'Le prénom est requis.');
-    // valider_champ('Prenom', 'minlength', $erreurs, 2);
-    // valider_champ('Prenom', 'maxlength', $erreurs, 255);
-
     valider_champ('E-Mail', 'required', $erreurs, 'L\'email est requis.');
     valider_champ('E-Mail', 'email', $erreurs, 'L\'adresse e-mail est invalide.');
-
-    // valider_champ('message', 'required', $erreurs, 'Le message est requis.');
-    // valider_champ('message', 'minlength', $erreurs, 10);
-    // valider_champ('message', 'maxlength', $erreurs, 3000);
 
     valider_champ('inscription_mdp', 'required', $erreurs, 'Le mot de passe est requis.');
     valider_champ('inscription_mdp', 'minlength', $erreurs, 8);
