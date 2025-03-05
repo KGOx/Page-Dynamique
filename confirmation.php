@@ -2,12 +2,12 @@
 session_start();
 
 // Affiche un message si nécessaire
-// if (!isset($_SESSION['form_data'])) {
-//     header('Location: index.php'); // Redirige vers l'accueil si accès direct
-//     exit();
-// }
+if (!isset($_SESSION['form_data'])) {
+    header('Location: index.php'); // Redirige vers l'accueil si accès direct
+    exit();
+}
 
-// Affiche les données enregistrées (facultatif, pour démonstration)
+// Affiche les données enregistrées
 $nom = htmlspecialchars($_SESSION['form_data']['Nom'] ?? '');
 $email = htmlspecialchars($_SESSION['form_data']['E-Mail'] ?? '');
 

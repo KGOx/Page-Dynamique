@@ -1,4 +1,5 @@
 <?php 
+session_start();
 $metaDescription = "description de la page actuelle...";
 $pageTitre = "Contact";
 require_once __DIR__ . DIRECTORY_SEPARATOR . 'header.php'; 

@@ -21,6 +21,8 @@ function connexion_bdd(): ?PDO
     {
         // Relancer l'exception pour qu'elle soit capturée par le bloc "try/catch" parent.
         echo "Erreur d'exécution de requête : " . $e->getMessage() . PHP_EOL;
+
+        return null;
     }
 }
 ?>

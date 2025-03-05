@@ -3,6 +3,11 @@ $metaDescription = "description de la page actuelle...";
 $pageTitre = "Inscription";
 require_once __DIR__ . DIRECTORY_SEPARATOR . 'header.php'; 
 require_once __DIR__ . DIRECTORY_SEPARATOR . 'traitementForm_inscription.php';
+
+if (isset($_SESSION["user_id"])) {
+    header('Location: profil.php'); 
+    exit();
+}
 ?>
 <h2>Inscription</h2>
 

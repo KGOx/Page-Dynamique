@@ -157,4 +157,18 @@ body {
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
   }
-  
+  .navbar {
+      padding: 10px 20px; /* Ajuste le padding du menu */
+  }
+
+  .navbar-nav .nav-link {
+      color: white !important; /* Forcer la couleur blanche des liens */
+      padding: 10px;
+      font-weight: bold;
+  }
+  .navbar-nav .nav-link:hover {
+    color: #f8f9fa !important; /* Légèrement plus clair au survol */
+  }
+  .navbar-toggler {
+      border: none; /* Supprime la bordure du bouton hamburger */
+  }

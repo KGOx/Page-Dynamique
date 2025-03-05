@@ -1,7 +1,13 @@
 <?php 
 $metaDescription = "description de la page actuelle...";
 $pageTitre = "Connexion";
-require_once __DIR__ . DIRECTORY_SEPARATOR . 'header.php'; ?>
+require_once __DIR__ . DIRECTORY_SEPARATOR . 'header.php'; 
+
+if (isset($_SESSION["user_id"])) {
+    header('Location: profil.php');
+    exit();
+}
+?>
 <h2>Connexion</h2>
 
 <form method="post" action="traitementForm_connexion.php"> <!-- traitementForm_connexion.php sera le script pour traiter la connexion -->

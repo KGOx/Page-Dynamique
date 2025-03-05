@@ -1,6 +1,5 @@
 <?php
 require_once 'utilisateur_model.php';
-session_start();
 
 function valider_champ($champ, $regle, &$erreurs, $message) 
     {
