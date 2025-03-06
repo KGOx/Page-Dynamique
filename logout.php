@@ -1,9 +1,9 @@
 <?php
-session_start();
-if (!isset($_SESSION["user_id"])) {
-    header('Location: connexion.php');
-    exit();
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
 }
-session_destroy(); // Supprime la session
-header("Location: index.php"); // Redirige vers l'accueil
+require_once 'gestionAuthentification.php';
+
+deconnecter_utilisateur();
+header("Location: confirmation_deconnection.php");
 exit();

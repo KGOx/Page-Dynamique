@@ -1,14 +1,14 @@
 <?php
-session_start();
+require_once 'gestionAuthentification.php';
 
 // Vérifie si l'utilisateur est bien connecté
-if (!isset($_SESSION["user_id"])) {
+if (!est_connecte()) {
     header("Location: index.php");
     exit();
 }
 
 // Récupère les informations de session
-$nomUtilisateur = htmlspecialchars($_SESSION['uti_pseudo']);
+$nomUtilisateur = htmlspecialchars($_SESSION['user_id']);
 
 // Efface les données de session si nécessaire
 // unset($_SESSION["nom_utilisateur"], $_SESSION["email"]);

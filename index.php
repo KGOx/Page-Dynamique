@@ -1,7 +1,9 @@
 <?php 
-session_start();
-$metaDescription = "description de la page actuelle...";
-$pageTitre = "Mon Premier Modèle de Page Dynamique";
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+$metaDescription = "Page d'accueil du site";
+$pageTitre = "Accueil";
 require_once __DIR__ . DIRECTORY_SEPARATOR . 'header.php'; ?>
 <h2>Bienvenue sur votre site web !</h2>
 

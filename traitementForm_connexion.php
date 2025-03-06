@@ -1,5 +1,8 @@
 <?php
-session_start(); // Démarrer la session
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+require_once 'gestionAuthentification.php';
 
 // Connexion à la base de données
 try {
@@ -29,12 +32,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Vérification du mot de passe haché
         if (password_verify($motDePasse, $user["uti_motdepasse"])) {
             // Connexion réussie, on enregistre l'utilisateur en session
-            $_SESSION["user_id"] = $user["uti_pseudo"];
-            $_SESSION["uti_pseudo"] = $user["uti_pseudo"];
-            $_SESSION["uti_email"] = $user["uti_email"];
+            connecter_utilisateur($user["uti_pseudo"]);
 
             echo "Connexion réussie ! Redirection...";
-            header("Location: connexion_granted.php"); // Redirige vers le tableau de bord
+            header("Location: connexion_granted.php"); // Redirige vers la validation de connexion
             exit();
         } else {
             echo "Mot de passe incorrect.";

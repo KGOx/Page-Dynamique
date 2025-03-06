@@ -1,11 +1,12 @@
 <?php 
-$metaDescription = "description de la page actuelle...";
+$metaDescription = "Inscription sur le site";
 $pageTitre = "Inscription";
 require_once __DIR__ . DIRECTORY_SEPARATOR . 'header.php'; 
 require_once __DIR__ . DIRECTORY_SEPARATOR . 'traitementForm_inscription.php';
+require_once 'gestionAuthentification.php';
 
-if (isset($_SESSION["user_id"])) {
-    header('Location: profil.php'); 
+if (est_connecte()) {
+    header('Location: profil.php');
     exit();
 }
 ?>

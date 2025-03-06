@@ -1,6 +1,8 @@
 <?php
 require_once 'utilisateur_model.php';
-session_start();
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
 
 function valider_champ($champ, $regle, &$erreurs, $message) 
     {

@@ -1,9 +1,10 @@
 <?php 
-$metaDescription = "description de la page actuelle...";
+$metaDescription = "Connexion au compte";
 $pageTitre = "Connexion";
 require_once __DIR__ . DIRECTORY_SEPARATOR . 'header.php'; 
+require_once 'gestionAuthentification.php';
 
-if (isset($_SESSION["user_id"])) {
+if (est_connecte()) {
     header('Location: profil.php');
     exit();
 }

@@ -1,13 +1,15 @@
 <?php 
-session_start();
-if (!isset($_SESSION["user_id"])) {
+require_once 'gestionAuthentification.php';
+
+if (!est_connecte()) {
     header('Location: connexion.php');
     exit();
 }
-$metaDescription = "description de la page actuelle...";
-$pageTitre = "Mon Premier Modèle de Page Dynamique";
+$metaDescription = "Page de profil d'utilisateur";
+$pageTitre = "Mon profil";
 require_once __DIR__ . DIRECTORY_SEPARATOR . 'header.php';
 require_once 'connexion_bdd.php';
+
 $pdo = connexion_bdd(); // Connexion à la BDD
 if (!$pdo) {
     die("Erreur : Impossible de se connecter à la base de données.");

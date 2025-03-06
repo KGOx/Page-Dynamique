@@ -1,10 +1,13 @@
-<?php 
-session_start();
-$metaDescription = "description de la page actuelle...";
+<?php
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+$metaDescription = "Page de contact utilisateur";
 $pageTitre = "Contact";
 require_once __DIR__ . DIRECTORY_SEPARATOR . 'header.php'; 
 require_once __DIR__ . DIRECTORY_SEPARATOR . 'traitementForm_contact.php'; 
 ?>
+
 <h2>Contact</h2>
 
 <form action="traitementForm_contact.php" method="post">
